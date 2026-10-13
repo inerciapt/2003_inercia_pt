@@ -13,6 +13,8 @@
     --muted: #666666;
     --sidebar-width: 170px;
     --content-max: 760px;
+    /* sidebar + gap + content + the 20px padding either side */
+    --page-max: 994px;
 }
 
 * {
@@ -41,6 +43,18 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+/* ---------- page centring ---------- */
+
+/* the three bands share one width so the logo, the menu and the footer
+   all line up on the same left edge, centred in the viewport */
+.masthead,
+.layout,
+.site-footer {
+    max-width: var(--page-max);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ---------- masthead (was the "logo" frame) ---------- */
