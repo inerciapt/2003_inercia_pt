@@ -1,0 +1,329 @@
+/* ------------------------------------------------------------------
+   Inércia Demoparty 2003 — static rebuild
+   The original site was a three-frame layout (logo / menu1 / main).
+   Frames are gone; the colours, Verdana typography and the purple
+   menu hover from the original "A.menulink" rule are kept.
+   ------------------------------------------------------------------ */
+
+:root {
+    --ink: #000000;
+    --accent: #6100C1;
+    --accent-bg: #F0E1FF;
+    --rule: #D8D8D8;
+    --muted: #666666;
+    --sidebar-width: 170px;
+    --content-max: 760px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #FFFFFF url('images/bg.jpg') repeat;
+    color: var(--ink);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+img {
+    border: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- masthead (was the "logo" frame) ---------- */
+
+.masthead {
+    padding: 18px 20px 14px;
+    border-bottom: 1px solid var(--rule);
+}
+
+.masthead img {
+    display: block;
+    width: 288px;
+}
+
+.masthead a:hover {
+    text-decoration: none;
+}
+
+/* ---------- layout ---------- */
+
+.layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 20px;
+}
+
+/* ---------- menu (was the "menu1" frame) ---------- */
+
+.menu {
+    width: var(--sidebar-width);
+    flex: 0 0 var(--sidebar-width);
+    position: sticky;
+    top: 20px;
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu a {
+    display: block;
+    padding: 1px 4px;
+    border: 1px solid #FFFFFF;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.menu a:hover {
+    border-color: var(--accent);
+    background-color: var(--accent-bg);
+    text-decoration: none;
+}
+
+.menu a[aria-current="page"] {
+    border-color: var(--accent);
+    background-color: var(--accent-bg);
+    font-weight: bold;
+}
+
+/* ---------- content (was the "main" frame) ---------- */
+
+.content {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: var(--content-max);
+}
+
+.content h1 {
+    margin: 0 0 24px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.content h2 {
+    margin: 28px 0 8px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.content h3 {
+    margin: 20px 0 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.content p {
+    margin: 0 0 12px;
+}
+
+.content ul {
+    margin: 0 0 12px;
+    padding-left: 22px;
+}
+
+.content li {
+    margin-bottom: 2px;
+}
+
+.content hr {
+    margin: 28px 0;
+    border: 0;
+    border-top: 1px solid var(--rule);
+}
+
+.center {
+    text-align: center;
+}
+
+.to-top {
+    text-align: right;
+    font-size: 11px;
+}
+
+.note {
+    color: var(--muted);
+    font-size: 11px;
+    font-style: italic;
+}
+
+/* home page */
+
+.hero {
+    text-align: center;
+}
+
+.hero img {
+    width: 560px;
+}
+
+.hero .tagline {
+    margin-top: 10px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* figures */
+
+figure {
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+figcaption {
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* the route map is a large drawing - let it be opened full size */
+
+figure.map img {
+    border: 1px solid var(--rule);
+    background: #FFFFFF;
+}
+
+/* ---------- schedule table ---------- */
+
+.schedule {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+}
+
+.schedule caption {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+    padding: 14px 0 6px;
+}
+
+.schedule th,
+.schedule td {
+    padding: 4px 8px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid #ECECEC;
+}
+
+.schedule thead th {
+    background: #C0C0C0;
+    border-bottom: 0;
+}
+
+.schedule .time {
+    width: 70px;
+    white-space: nowrap;
+}
+
+.schedule .deadline {
+    width: 40%;
+}
+
+/* ---------- sponsors ---------- */
+
+.sponsors {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 14px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* every sponsor gets an equal share of the row */
+.sponsors li {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
+}
+
+/* the logo sits in a fixed-height box, so every caption starts on the
+   same line no matter how tall or wide the original logo is */
+.sponsors img {
+    display: block;
+    width: 100%;
+    height: 80px;
+    object-fit: contain;
+    object-position: center bottom;
+    margin: 0 auto 8px;
+}
+
+.sponsors a {
+    color: inherit;
+}
+
+.sponsors a:hover .name {
+    text-decoration: underline;
+}
+
+.sponsors .name {
+    display: block;
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+    margin-top: 10px;
+    padding: 14px 20px 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* ---------- narrow screens ---------- */
+
+@media (max-width: 720px) {
+    .layout {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .menu {
+        position: static;
+        width: 100%;
+        flex-basis: auto;
+    }
+
+    .menu ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .hero img {
+        width: 100%;
+    }
+
+    .sponsors {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .sponsors li {
+        flex: 0 1 130px;
+    }
+}
